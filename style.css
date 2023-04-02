@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 :root {
     --yellow: #f6cd6c;
@@ -33,12 +34,20 @@ body {
     text-align: center;
     width: 100vw;
     height: calc(561 / 1640  * 100vw);
-    font-size: 45px;
+    font-size: 40px;
     /*-webkit-text-stroke: 3px black;*/
     text-shadow: rgba(0, 0, 0, 0.646) 2px 2px 2px;
 }
 
-#designs {
+#bannersection h1 {
+    font-weight: lighter;
+    font-family: 'Fredoka One', cursive;
+    position: relative;
+    bottom: 25px;
+    line-height: 1;
+}
+
+#designs {  
     padding: 50px 150px 50px 150px;
 }
 
@@ -83,15 +92,27 @@ mark {
 }
 
 .design-item {
-    cursor: pointer;
     background-image: url("https://cdn.discordapp.com/attachments/1082616843468025897/1084828718905696327/image0.jpg");
     background-size: contain;
     height: 450px;
     width: 450px;
     border: var(--dark-blue) solid 6px;
     border-top-right-radius: 4px;    
-    
 }
+
+.wrap-item {
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.wrap-item:hover:not(.sold) {
+
+    box-shadow: var(--dark-blue) 10px 10px 0px;
+
+    transition: 0.3s ease-in-out;
+}
+
+
 
 .sold {
     cursor: not-allowed;
@@ -100,7 +121,7 @@ mark {
     transition: 0.3s filter ease-in-out;
 }
 
-.sold:hover {
+.wrap-item.sold:hover {
     filter: blur(3px) grayscale(100%);
     transition: 0.3s filter ease-in-out;
 }
@@ -118,12 +139,14 @@ mark {
 
 .personalise-banner {
     font-size: 30px;
-    padding: 20px;
+    padding: 20px 30px 20px 30px;
     font-weight: 800;
     background-color: var(--yellow);
     border: var(--dark-blue) solid 5px;
-    border-radius: 50px;
+    border-radius: 40px;
     color: var(--dark-blue);
+
+    margin: 25px 0px 25px 0px;
 }
 
 .looks {
@@ -136,7 +159,6 @@ mark {
 #location {
     display: flex;
     gap: 20px;
-
     align-items: center;
 }
 
@@ -161,5 +183,70 @@ footer {
     align-items: center;
     display: flex;
     gap: 50px;
+}
+
+.looks {
+    background-color: var(--pink);
+    display: grid;
+
+    grid-template-areas:
+        "imgpreview titlebar"
+        "imgpreview description";
+
+    grid-template-rows: 1fr 2fr;
+    padding: 60px;
+
+}
+
+
+#image-preview {
+    max-width: 100%; /* set max width to prevent image from overflowing */
+    height: auto; /* preserve aspect ratio */
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* align items vertically in the center */
+    grid-area: imgpreview;
+}
+
+#image-preview img {
+    border: var(--dark-blue) solid 6px;
+}
+
+
+#looks-title {
+    grid-area: titlebar;
+
+}
+
+#looks-title h2 {
+    background-color: white;
+
+    padding: 15px;
+
+    font-size: 40px;
+    color: var(--dark-blue);
+    font-weight: 800;
+
+    border: var(--dark-blue) solid 6px;
+}
+
+#item-description {
+    grid-area: description;
+
+    color: var(--dark-blue);
+
+    background-color: white;
+    padding: 20px 50px 20px 50px;
+
+    border: var(--dark-blue) solid 6px;
+
+    font-size: 30px;
+}
+
+hr {
+    display: none;
 }
 
