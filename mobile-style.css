@@ -57,6 +57,7 @@
     hr {
         display: block;
         color: var(--dark-blue);
+        border-color: var(--dark-blue);
     }
 
 }
